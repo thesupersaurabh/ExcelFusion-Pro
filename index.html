@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExcelFusion Pro</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://icon-icons.com/downloadimage.php?id=132212&root=2148/ICO/512/&file=microsoft_excel_icon_132212.ico" type="image/x-icon">
+    <!-- Bootstrap and Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #495057;
+            color: white;
+        }
+        .btn {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            border-top: 1px solid #007bff;
+        }
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .modal-header, .modal-footer {
+            background-color: #495057;
+            color: white;
+        }
+        .modal-footer .btn-secondary {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center"><i class="fas fa-file-excel"></i> ExcelFusion Pro</h1>
+
+        <div class="form-group">
+            <label for="upload">Upload Excel Files:</label>
+            <input type="file" class="form-control-file" id="upload" multiple accept=".xlsx"
+                onchange="displayFileCount()" />
+            <small id="fileHelp" class="form-text text-muted">Select two or more Excel files to merge and compare.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="defaultValue">Default Value for Empty Cells:</label>
+            <input type="text" class="form-control" id="defaultValue" placeholder="Enter default value" />
+        </div>
+
+        <div class="mb-4">
+            <button class="btn btn-primary" onclick="mergeFiles()" title="Merge and Preview">
+                <i class="fas fa-table"></i> Merge and Show Preview
+            </button>
+            <button class="btn btn-secondary" id="reset" style="display:none;" onclick="resetTool()" title="Reset">
+                <i class="fas fa-redo"></i> Reset
+            </button>
+            <button class="btn btn-success" id="download" style="display:none;" onclick="downloadMerged()"
+                title="Download">
+                <i class="fas fa-download"></i> Download Merged Excel
+            </button>
+            <button class="btn btn-info" id="howToUse" onclick="showHowToUse()" title="How to Use">
+                <i class="fas fa-info-circle"></i> How to Use
+            </button>
+            <button class="btn btn-info" id="about" onclick="showAboutModal()" title="About">
+                <i class="fas fa-info-circle"></i> About
+            </button>
+        </div>
+
+        <div id="preview"></div>
+    </div>
+
+    <footer>
+        © 2024 ExcelFusion Pro | Developed by <a href="https://github.com/thesupersaurabh"
+            target="_blank">Saurabh</a>
+    </footer>
+
+    <!-- Modal for how-to-use instructions -->
+    <div class="modal fade" id="howToUseModal" tabindex="-1" aria-labelledby="howToUseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="howToUseModalLabel">How to Use the Tool</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>Upload multiple Excel files using the "Upload Excel Files" button.</li>
+                        <li>Optionally, enter a default value for empty cells.</li>
+                        <li>Click "Merge and Show Preview" to see combined data.</li>
+                        <li>Select columns and rows to view and download with checkboxes.</li>
+                        <li>Click "Download Merged Excel" to save the result.</li>
+                        <li>Use "Reset" to clear data and start fresh.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for about information -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">About ExcelFusion Pro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>ExcelFusion Pro</strong> is an open-source, web-based application designed to streamline the process of merging and comparing Excel files. It is ideal for data analysts, researchers, and professionals managing large datasets, offering a seamless way to upload, filter, and merge files efficiently.</p>
+                    <p>Features include:</p>
+                    <ul>
+                        <li>Multiple File Uploads</li>
+                        <li>Smart Merging</li>
+                        <li>Dynamic Filters & Selection</li>
+                        <li>One-click Export</li>
+                        <li>User-Friendly Interface</li>
+                    </ul>
+                    <p><strong>Want to contribute?</strong> Visit the project on <a href="https://github.com/thesupersaurabh/ExcelFusion-Pro" target="_blank">GitHub</a> to learn how you can enhance ExcelFusion Pro!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let mergedData = [];
+        let allHeaders = new Set();
+        let selectedColumns = new Set();
+        let selectedRows = new Set();
+
+        async function readExcel(file) {
+            const data = await file.arrayBuffer();
+            const workbook = XLSX.read(data, { type: "array" });
+            const sheetName = workbook.SheetNames[0];
+            return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { defval: "" });
+        }
+
+        async function mergeFiles() {
+            const files = document.getElementById('upload').files;
+            if (files.length < 2) {
+                alert("Please upload at least two Excel files!");
+                return;
+            }
+
+            const dataList = [];
+            allHeaders.clear();
+            mergedData = [];
+
+            for (const file of files) {
+                const data = await readExcel(file);
+                dataList.push(data);
+                data.forEach(row => Object.keys(row).forEach(header => allHeaders.add(header)));
+            }
+
+            const rowMap = new Map();
+
+            dataList.forEach(data => {
+                data.forEach(row => {
+                    const key = row["Roll"] || row["Name"] || JSON.stringify(row);
+                    if (!rowMap.has(key)) {
+                        rowMap.set(key, [row]);
+                    } else {
+                        rowMap.get(key).push(row);
+                    }
+                });
+            });
+
+            mergedData = Array.from(rowMap.entries()).map(([key, rows]) => ({ key, rows }));
+            displayPreviews();
+            document.getElementById('download').style.display = 'inline';
+            document.getElementById('reset').style.display = 'inline';
+        }
+
+        function displayPreviews() {
+            const previewDiv = document.getElementById('preview');
+            previewDiv.innerHTML = "";
+
+            if (mergedData.length === 0) {
+                previewDiv.innerHTML = "<div class='alert alert-warning'>No data to display.</div>";
+                return;
+            }
+
+            const checkboxContainer = document.createElement('div');
+            checkboxContainer.classList.add('checkbox-container');
+
+            allHeaders.forEach(header => createCheckbox(header, checkboxContainer));
+
+            previewDiv.appendChild(checkboxContainer);
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.classList.add('d-flex', 'justify-content-between', 'mt-2');
+
+            const selectAllButton = createSelectDeselectButton('Select All', true, 'btn-warning');
+            const deselectAllButton = createSelectDeselectButton('Deselect All', false, 'btn-danger');
+
+            buttonContainer.appendChild(selectAllButton);
+            buttonContainer.appendChild(deselectAllButton);
+            previewDiv.appendChild(buttonContainer);
+
+            displaySelectedColumns();
+        }
+
+        function createCheckbox(header, container) {
+            const checkboxDiv = document.createElement('div');
+            checkboxDiv.classList.add('form-check', 'form-check-inline');
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.classList.add('form-check-input');
+            checkbox.value = header;
+            checkbox.checked = true;
+            selectedColumns.add(header);
+            checkbox.onchange = () => {
+                checkbox.checked ? selectedColumns.add(header) : selectedColumns.delete(header);
+                displaySelectedColumns();
+                removeWarning();
+            };
+
+            const label = document.createElement('label');
+            label.classList.add('form-check-label');
+            label.innerText = header;
+
+            checkboxDiv.appendChild(checkbox);
+            checkboxDiv.appendChild(label);
+            container.appendChild(checkboxDiv);
+        }
+
+        function removeWarning() {
+            const warning = document.querySelector('.alert-warning');
+            if (warning) warning.remove();
+        }
+
+        function manageEmptySelection() {
+            const warningMessage = document.createElement('div');
+            warningMessage.classList.add('alert', 'alert-warning', 'mt-2');
+            warningMessage.innerText = 'Please select at least one column!';
+            document.querySelector('.checkbox-container').appendChild(warningMessage);
+        }
+
+        function createSelectDeselectButton(text, isSelect, btnClass) {
+            const button = document.createElement('button');
+            button.classList = `btn ${btnClass}`;
+            button.innerText = text;
+            button.onclick = () => {
+                toggleSelectAll(isSelect);
+                removeWarning();
+            };
+            return button;
+        }
+
+        function displaySelectedColumns() {
+            removeWarning();
+            const previewDiv = document.getElementById('preview');
+            previewDiv.querySelector('table')?.remove();
+
+            if (selectedColumns.size === 0) {
+                manageEmptySelection();
+                return;
+            }
+
+            const previewTable = document.createElement('table');
+            previewTable.classList.add('table', 'table-hover');
+
+            const headerRow = document.createElement('tr');
+
+            selectedColumns.forEach(col => {
+                const th = document.createElement('th');
+                th.innerText = col;
+
+                const filterInput = document.createElement('input');
+                filterInput.type = 'text';
+                filterInput.placeholder = 'Filter...';
+                filterInput.classList.add('form-control', 'filter-input');
+                filterInput.oninput = () => filterTable();
+
+                th.appendChild(filterInput);
+                headerRow.appendChild(th);
+            });
+
+            const checkboxHeader = document.createElement('th');
+            checkboxHeader.innerText = 'Select';
+            headerRow.appendChild(checkboxHeader);
+
+            previewTable.appendChild(headerRow);
+
+            const defaultValue = document.getElementById('defaultValue').value || "Default Value";
+
+            mergedData.forEach(({ rows }) => {
+                const uniqueValues = {};
+                rows.forEach(row => {
+                    const tr = document.createElement('tr');
+                    let prevValue = null;
+
+                    selectedColumns.forEach(col => {
+                        const value = (row[col] === undefined || row[col] === null || row[col] === "") ? defaultValue : row[col];
+                        if (prevValue === value) {
+                            uniqueValues[col] = uniqueValues[col] ? uniqueValues[col] + ', ' + value : value;
+                        } else {
+                            uniqueValues[col] = value;
+                        }
+                        prevValue = value;
+                    });
+
+                    selectedColumns.forEach(col => {
+                        const td = document.createElement('td');
+                        td.innerText = uniqueValues[col];
+                        tr.appendChild(td);
+                    });
+
+                    const checkboxCell = document.createElement('td');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.classList.add('row-checkbox');
+                    checkbox.checked = selectedRows.has(row);
+                    checkbox.onchange = () => {
+                        checkbox.checked ? selectedRows.add(row) : selectedRows.delete(row);
+                    };
+                    checkboxCell.appendChild(checkbox);
+                    tr.appendChild(checkboxCell);
+
+                    previewTable.appendChild(tr);
+                });
+            });
+
+            previewDiv.appendChild(previewTable);
+        }
+
+        function toggleSelectAll(isSelect) {
+            document.querySelectorAll('.form-check-input').forEach(checkbox => {
+                checkbox.checked = isSelect;
+                isSelect ? selectedColumns.add(checkbox.value) : selectedColumns.delete(checkbox.value);
+            });
+            displaySelectedColumns();
+        }
+
+        function filterTable() {
+            const filterValues = Array.from(document.querySelectorAll('.filter-input')).map(input => input.value.toLowerCase());
+
+            const rows = document.querySelectorAll('#preview table tr:not(:first-child)');
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                let match = true;
+
+                filterValues.forEach((filterValue, colIndex) => {
+                    if (filterValue && cells[colIndex].innerText.toLowerCase().indexOf(filterValue) === -1) {
+                        match = false;
+                    }
+                });
+
+                row.style.display = match ? '' : 'none';
+            });
+        }
+
+        function resetTool() {
+            document.getElementById('upload').value = '';
+            document.getElementById('defaultValue').value = '';
+            mergedData = [];
+            allHeaders.clear();
+            selectedColumns.clear();
+            selectedRows.clear();
+            const previewDiv = document.getElementById('preview');
+            previewDiv.innerHTML = '';
+            document.getElementById('download').style.display = 'none';
+            document.getElementById('reset').style.display = 'none';
+            removeWarning();
+        }
+
+        function downloadMerged() {
+            const dataToExport = [];
+
+            mergedData.forEach(({ rows }) => {
+                const row = {};
+                selectedColumns.forEach(col => {
+                    row[col] = rows.map(r => r[col]).filter(val => val).join(', ');
+                });
+                dataToExport.push(row);
+            });
+
+            const mergedSheet = XLSX.utils.json_to_sheet(dataToExport);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, mergedSheet, "Merged Data");
+            XLSX.writeFile(workbook, "merged_data.xlsx");
+        }
+
+        function showHowToUse() {
+            $('#howToUseModal').modal('show');
+        }
+
+        function showAboutModal() {
+            $('#aboutModal').modal('show');
+        }
+
+        function displayFileCount() {
+            const fileInput = document.getElementById('upload');
+            const fileCount = fileInput.files.length;
+            const fileHelp = document.getElementById('fileHelp');
+
+            if (fileCount > 1) {
+                fileHelp.innerText = `${fileCount} files selected.`;
+                fileHelp.classList.add('text-success');
+            } else {
+                fileHelp.innerText = "Select two or more Excel files to merge and compare.";
+                fileHelp.classList.remove('text-success');
+            }
+        }
+    </script>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
