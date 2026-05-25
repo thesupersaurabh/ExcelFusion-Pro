@@ -1,0 +1,39 @@
+# ExcelFusion Pro — robots.txt
+# Allow all traditional and AI search crawlers
+
+User-agent: *
+Allow: /
+
+# Traditional search
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI search & citation bots
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot (via Bingbot, already listed above)
+
+Sitemap: https://thesupersaurabh.github.io/ExcelFusion-Pro/sitemap.xml
