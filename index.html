@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#39ff84">
+
+    <!-- ═══════════════════════════════════════════════
+         DNS Preconnects for Assets & Scripts
+     ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231D6F42'/%3E%3Crect x='0' y='0' width='18' height='32' rx='7' fill='%23217346'/%3E%3Cpath d='M5 8.5L9.8 16L5 23.5H8.5L11.5 18.2L14.5 23.5H18L13.1 16L18 8.5H14.5L11.5 13.8L8.5 8.5H5Z' fill='white'/%3E%3Crect x='18' y='10' width='9' height='1.6' rx='0.8' fill='white' opacity='0.85'/%3E%3Crect x='18' y='14.2' width='9' height='1.6' rx='0.8' fill='white' opacity='0.85'/%3E%3Crect x='18' y='18.4' width='9' height='1.6' rx='0.8' fill='white' opacity='0.85'/%3E%3Crect x='18' y='22.6' width='9' height='1.6' rx='0.8' fill='white' opacity='0.85'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- ═══════════════════════════════════════════════
          AI-SEO: Core Meta Tags
-    ═══════════════════════════════════════════════ -->
+     ═══════════════════════════════════════════════ -->
     <title>ExcelFusion Pro — Free Online Excel Merger & Combiner Tool</title>
     <meta name="description" content="ExcelFusion Pro is a free, browser-based Excel merger tool. Upload multiple .xlsx files, merge data intelligently by matching rows, filter columns, and download the combined Excel file — no server, 100% private.">
     <meta name="keywords" content="merge excel files online, excel merger tool, combine xlsx files, excel combiner free, merge spreadsheets online">
     <link rel="canonical" href="https://thesupersaurabh.github.io/ExcelFusion-Pro/">
     <meta name="author" content="Saurabh">
-    <meta name="last-modified" content="2025-05-25">
+    <meta name="last-modified" content="2026-05-27">
 
     <!-- ═══════════════════════════════════════════════
          AI-SEO: Open Graph & Social
-    ═══════════════════════════════════════════════ -->
+     ═══════════════════════════════════════════════ -->
     <meta property="og:title" content="ExcelFusion Pro — Free Excel Merger Tool">
     <meta property="og:description" content="Merge multiple Excel files in seconds. No uploads to a server — everything runs in your browser. Free, private, and open-source.">
     <meta property="og:type" content="website">
@@ -28,13 +38,13 @@
 
     <!-- ═══════════════════════════════════════════════
          AI-SEO: Allow AI crawlers (GPTBot, Perplexity, Claude, Gemini)
-    ═══════════════════════════════════════════════ -->
+     ═══════════════════════════════════════════════ -->
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
 
     <!-- ═══════════════════════════════════════════════
-         AI-SEO: Schema Markup — WebApplication + FAQPage
-    ═══════════════════════════════════════════════ -->
+         AI-SEO: Schema Markup — WebApplication + FAQPage + BreadcrumbList
+     ═══════════════════════════════════════════════ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,7 +67,7 @@
             "url": "https://github.com/thesupersaurabh"
           },
           "datePublished": "2024-01-01",
-          "dateModified": "2025-05-25",
+          "dateModified": "2026-05-27",
           "featureList": [
             "Upload multiple Excel files simultaneously",
             "Smart row merging by key field (Roll or Name)",
@@ -65,6 +75,17 @@
             "Empty cell default value replacement",
             "One-click download of merged Excel file",
             "100% client-side — no data uploaded to server"
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://thesupersaurabh.github.io/ExcelFusion-Pro/"
+            }
           ]
         },
         {
@@ -118,7 +139,7 @@
 
     <!-- ═══════════════════════════════════════════════
          Fonts — Display: Space Grotesk | Body: DM Mono
-    ═══════════════════════════════════════════════ -->
+     ═══════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -235,16 +256,14 @@
         }
 
         .logo-icon {
-            width: 30px;
-            height: 30px;
-            background: var(--accent);
+            width: 32px;
+            height: 32px;
             border-radius: 7px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #000;
-            font-size: 0.85rem;
-            font-weight: 700;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
         .logo-badge {
@@ -610,6 +629,17 @@
         }
 
         .btn-danger:hover { background: rgba(255,79,107,0.18); }
+
+        .btn-mock {
+            background: rgba(139, 92, 246, 0.12);
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+        }
+
+        .btn-mock:hover {
+            background: rgba(139, 92, 246, 0.22);
+        }
+
 
         /* ═══════════════════════════
            PREVIEW SECTION
@@ -1106,6 +1136,540 @@
             .btn { width: 100%; justify-content: center; }
             .feature-grid { grid-template-columns: 1fr; }
         }
+
+        /* ═══════════════════════════════════════════
+           ADDITIONAL STYLES — Design Taste Overrides
+           ═══════════════════════════════════════════ */
+
+        /* Liquid Glass Refraction & Accents */
+        .tool-card, .upload-zone, .modal-box, .feature-item, .btn-secondary, .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), var(--shadow-card);
+        }
+
+        /* Asymmetric Split Hero Grid */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3.5rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-content h1.hero-title {
+            text-align: left;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content .hero-sub {
+            text-align: left;
+            margin: 0 0 2rem 0;
+            max-width: 580px;
+        }
+
+        .hero-content .hero-stats {
+            justify-content: flex-start;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        /* Hero Live Merger Simulation */
+        .hero-visual {
+            width: 100%;
+            perspective: 1000px;
+        }
+
+        .sim-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 20px 40px rgba(0,0,0,0.5);
+            transform: rotateY(-6deg) rotateX(4deg);
+            transition: transform 0.5s ease;
+            animation: floatSim 6s ease-in-out infinite;
+        }
+
+        .sim-card:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        }
+
+        .sim-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .sim-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--steel-dim);
+        }
+
+        .sim-dot:nth-child(1) { background: #ff5f57; }
+        .sim-dot:nth-child(2) { background: #febc2e; }
+        .sim-dot:nth-child(3) { background: #28c840; }
+
+        .sim-title {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--steel);
+            margin-left: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .sim-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+        }
+
+        .sim-file {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+        }
+
+        .sim-file .file-icon {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .sim-file .file-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sim-file .file-name {
+            font-size: 0.72rem;
+            color: #fff;
+        }
+
+        .sim-file .file-size {
+            font-size: 0.6rem;
+            color: var(--steel-dim);
+        }
+
+        .sim-connector {
+            height: 20px;
+            position: relative;
+            margin: -6px 0;
+            padding-left: 20px;
+        }
+
+        .connector-line {
+            width: 2px;
+            height: 100%;
+            background: dashed var(--border);
+            border-left: 1.5px dashed var(--steel-dim);
+        }
+
+        .connector-pulse {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 2px;
+            height: 6px;
+            background: var(--accent);
+            animation: pulseFlow 2s infinite linear;
+        }
+
+        .sim-merge-arrow {
+            display: flex;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin: 2px 0;
+            animation: arrowBounce 1.5s infinite ease-in-out;
+        }
+
+        .sim-result {
+            background: rgba(57, 255, 132, 0.04);
+            border: 1px solid var(--accent-border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+        }
+
+        .sim-result .result-icon {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .sim-result .result-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sim-result .result-name {
+            font-size: 0.75rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .sim-result .result-status {
+            font-size: 0.6rem;
+            color: var(--accent-dim);
+        }
+
+        /* Scrolling Marquee Ticker */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: rgba(19, 22, 30, 0.4);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 9px 0;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            color: var(--steel-bright);
+            text-transform: uppercase;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-bottom: 2rem;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content span {
+            display: inline-block;
+            padding-right: 4rem;
+        }
+
+        .marquee-content span::after {
+            content: '·';
+            margin-left: 4rem;
+            color: var(--accent);
+        }
+
+        /* Bento Grid Layout overrides for features */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 16px !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            overflow: visible !important;
+        }
+
+        .feature-item {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            top: 0;
+        }
+
+        .feature-item:hover {
+            background: var(--bg-elevated);
+            top: -4px;
+            border-color: var(--accent-border) !important;
+        }
+
+        .feature-item.wide {
+            grid-column: span 2;
+        }
+
+        /* CSS Skeleton Shimmer Loader */
+        .skeleton-cell {
+            height: 14px;
+            background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-card) 50%, var(--bg-elevated) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: var(--radius-sm);
+            width: 100%;
+        }
+
+        /* Table Row Hover Green Accent Indicator */
+        table.data-table tbody tr {
+            position: relative;
+        }
+
+        table.data-table tbody tr td {
+            position: relative;
+        }
+
+        table.data-table tbody tr td:first-child::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center;
+        }
+
+        table.data-table tbody tr:hover td:first-child::before {
+            transform: scaleY(1);
+        }
+
+        /* Comparison Section Styles */
+        .comparison-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .comparison-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-section .section-description {
+            color: var(--steel);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Tutorial Section Styles */
+        .tutorial-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .tutorial-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .tutorial-section .section-description {
+            color: var(--steel);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tutorial-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), var(--shadow-card);
+        }
+
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: var(--accent-glow);
+            border: 1px solid var(--accent-border);
+            padding: 2px 8px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card p {
+            font-size: 0.8rem;
+            color: var(--steel);
+            line-height: 1.55;
+        }
+
+        /* Developer Section Styles */
+        .developer-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .developer-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-section .section-description {
+            color: var(--steel);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .dev-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .dev-tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--steel);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            outline: none;
+        }
+
+        .dev-tab-btn.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .dev-pane {
+            display: none;
+            background: var(--bg-surface);
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), var(--shadow-card);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .dev-pane.active {
+            display: block;
+        }
+
+        .dev-pane pre {
+            margin: 0;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--steel-bright);
+            line-height: 1.6;
+        }
+
+        .dev-pane code {
+            display: block;
+            background: transparent;
+            padding: 0;
+            border: none;
+        }
+
+
+
+        /* Keyframes */
+        @keyframes floatSim {
+            0%, 100% { transform: rotateY(-6deg) rotateX(4deg) translateY(0); }
+            50% { transform: rotateY(-4deg) rotateX(2deg) translateY(-8px); }
+        }
+
+        @keyframes pulseFlow {
+            0% { top: -10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 110%; opacity: 0; }
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(4px); opacity: 1; }
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Mobile Breakpoints overrides */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+                padding: clamp(3rem, 6vw, 4rem) 1.5rem;
+            }
+            .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+            .hero-content h1.hero-title {
+                text-align: center;
+            }
+            .hero-content .hero-sub {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-content .hero-stats {
+                justify-content: center;
+            }
+            .hero-visual {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+            .feature-item.wide {
+                grid-column: span 1;
+            }
+        }
     </style>
 </head>
 
@@ -1117,12 +1681,25 @@
     <header class="site-header" role="banner">
         <div class="header-inner">
             <a href="/" class="logo" aria-label="ExcelFusion Pro Home">
-                <div class="logo-icon" aria-hidden="true">EF</div>
-                ExcelFusion Pro
-                <span class="logo-badge">FREE</span>
+                <div class="logo-icon" aria-hidden="true">
+                    <!-- Excel-style X logo SVG -->
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="7" fill="#1D6F42"/>
+                        <rect x="0" y="0" width="18" height="32" rx="7" fill="#217346"/>
+                        <path d="M5 8.5L9.8 16L5 23.5H8.5L11.5 18.2L14.5 23.5H18L13.1 16L18 8.5H14.5L11.5 13.8L8.5 8.5H5Z" fill="white"/>
+                        <rect x="18" y="10" width="9" height="1.6" rx="0.8" fill="white" opacity="0.85"/>
+                        <rect x="18" y="14.2" width="9" height="1.6" rx="0.8" fill="white" opacity="0.85"/>
+                        <rect x="18" y="18.4" width="9" height="1.6" rx="0.8" fill="white" opacity="0.85"/>
+                        <rect x="18" y="22.6" width="9" height="1.6" rx="0.8" fill="white" opacity="0.85"/>
+                    </svg>
+                </div>
+                ExcelFusion
+                <span class="logo-badge">PRO</span>
             </a>
             <nav class="header-links" aria-label="Site navigation">
                 <a href="#how-it-works">How it works</a>
+                <a href="#compare">Compare</a>
+                <a href="#developer">Developer API</a>
                 <a href="#faq">FAQ</a>
                 <a href="https://github.com/thesupersaurabh/ExcelFusion-Pro" target="_blank" rel="noopener noreferrer" class="github-link" aria-label="View source on GitHub">
                     <i class="fab fa-github" aria-hidden="true"></i> GitHub
@@ -1135,29 +1712,86 @@
          HERO
     ═══════════════════════════════════════ -->
     <section class="hero" aria-label="Hero section">
-        <div class="hero-eyebrow" role="note">100% Client-Side · No Upload to Server · Free Forever</div>
-        <h1 class="hero-title">
-            Merge Excel Files<br>
-            <span class="accent-word">Instantly.</span> For Free.
-        </h1>
-        <p class="hero-sub">
-            Upload multiple <strong>.xlsx</strong> files, intelligently combine rows, filter columns, and download a single merged Excel file — all inside your browser, with zero data ever leaving your device.
-        </p>
-        <div class="hero-stats" aria-label="Key statistics">
-            <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Browser-based</span>
+        <div class="hero-content">
+            <div class="hero-eyebrow" role="note">100% Client-Side · No Upload to Server · Free Forever</div>
+            <h1 class="hero-title">
+                Merge Excel Files<br>
+                <span class="accent-word">Instantly.</span> For Free.
+            </h1>
+            <p class="hero-sub">
+                ExcelFusion Pro lets you <strong>merge excel files online</strong> instantly and securely in your browser. Upload multiple <strong>.xlsx</strong> files, match rows by primary keys, select columns, and download the combined spreadsheet — with 100% client-side privacy.
+            </p>
+            <div class="hero-stats" aria-label="Key statistics">
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Browser-based</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">🔒 Zero</span>
+                    <span class="stat-label">Server uploads</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Free</span>
+                    <span class="stat-label">Always &amp; Pro</span>
+                </div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">0</span>
-                <span class="stat-label">Data uploaded</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">Free</span>
-                <span class="stat-label">Always & forever</span>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+            <div class="sim-card">
+                <div class="sim-header">
+                    <span class="sim-dot"></span>
+                    <span class="sim-dot"></span>
+                    <span class="sim-dot"></span>
+                    <span class="sim-title">fusion_engine.log</span>
+                </div>
+                <div class="sim-body">
+                    <div class="sim-file file-a">
+                        <div class="file-icon"><i class="fas fa-file-excel"></i></div>
+                        <div class="file-info">
+                            <span class="file-name">sales_january.xlsx</span>
+                            <span class="file-size">45.2 KB · 120 rows</span>
+                        </div>
+                    </div>
+                    <div class="sim-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-pulse"></div>
+                    </div>
+                    <div class="sim-file file-b">
+                        <div class="file-icon"><i class="fas fa-file-excel"></i></div>
+                        <div class="file-info">
+                            <span class="file-name">sales_february.xlsx</span>
+                            <span class="file-size">38.7 KB · 98 rows</span>
+                        </div>
+                    </div>
+                    <div class="sim-merge-arrow"><i class="fas fa-angles-down"></i></div>
+                    <div class="sim-result">
+                        <div class="result-icon"><i class="fas fa-file-circle-check"></i></div>
+                        <div class="result-info">
+                            <span class="result-name">merged_q1_report.xlsx</span>
+                            <span class="result-status">218 rows combined · 0ms latency</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ═══════════════════════════════════════
+         KINETIC TICKER
+    ═══════════════════════════════════════ -->
+    <div class="marquee-container" aria-hidden="true">
+        <div class="marquee-content">
+            <span>🔒 100% PRIVATE: DATA NEVER LEAVES YOUR DEVICE</span>
+            <span>⚡️ ZERO SERVER LATENCY: PROCESS INSTANTLY IN BROWSER</span>
+            <span>📈 UNLIMITED ROWS: POWERED BY SHEETJS LOCAL PARSER</span>
+            <span>🛠️ NO ACCOUNT REQUIRED: NO SUBSCRIPTIONS, NO LIMITS</span>
+            <span>🔒 100% PRIVATE: DATA NEVER LEAVES YOUR DEVICE</span>
+            <span>⚡️ ZERO SERVER LATENCY: PROCESS INSTANTLY IN BROWSER</span>
+            <span>📈 UNLIMITED ROWS: POWERED BY SHEETJS LOCAL PARSER</span>
+            <span>🛠️ NO ACCOUNT REQUIRED: NO SUBSCRIPTIONS, NO LIMITS</span>
+        </div>
+    </div>
 
     <!-- ═══════════════════════════════════════
          MAIN TOOL
@@ -1211,6 +1845,9 @@
                     <button class="btn btn-danger" id="resetBtn" style="display:none;" onclick="resetTool()" title="Reset all">
                         <i class="fas fa-arrow-rotate-left" aria-hidden="true"></i> Reset
                     </button>
+                    <button class="btn btn-mock" onclick="loadMockData()" title="Try with sample data" id="mockBtn">
+                        <i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Try Mock Data
+                    </button>
                     <button class="btn btn-ghost" onclick="openModal('howToUseModal')" title="How to use">
                         <i class="fas fa-circle-info" aria-hidden="true"></i> How to Use
                     </button>
@@ -1247,32 +1884,229 @@
                 <div class="feature-title">Multiple File Upload</div>
                 <p class="feature-desc">Upload 2 or more .xlsx files simultaneously. Handles large datasets without size limits imposed by server uploads.</p>
             </div>
-            <div class="feature-item" role="listitem">
+            <div class="feature-item wide" role="listitem">
                 <div class="feature-icon" aria-hidden="true"><i class="fas fa-code-merge"></i></div>
                 <div class="feature-title">Smart Row Merging</div>
-                <p class="feature-desc">Automatically matches rows across files using the Roll or Name column as a key. Duplicate rows are intelligently combined.</p>
+                <p class="feature-desc">Automatically matches rows across files using the Roll or Name column as a key. Duplicate rows are intelligently combined, sorting column overlaps without messing up alignments.</p>
             </div>
             <div class="feature-item" role="listitem">
                 <div class="feature-icon" aria-hidden="true"><i class="fas fa-filter"></i></div>
                 <div class="feature-title">Dynamic Column Filtering</div>
                 <p class="feature-desc">Choose exactly which columns to include in your merged output. Per-column filter inputs help you find rows instantly.</p>
             </div>
-            <div class="feature-item" role="listitem">
+            <div class="feature-item wide" role="listitem">
                 <div class="feature-icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></div>
-                <div class="feature-title">100% Private</div>
-                <p class="feature-desc">All processing happens in your browser using the SheetJS library. Your Excel data never touches any external server.</p>
+                <div class="feature-title">100% Private Local Parsing</div>
+                <p class="feature-desc">All processing happens in your browser using the SheetJS library. Your sensitive Excel data never touches any external server or API, ensuring complete enterprise privacy compliance.</p>
             </div>
             <div class="feature-item" role="listitem">
                 <div class="feature-icon" aria-hidden="true"><i class="fas fa-file-excel"></i></div>
                 <div class="feature-title">One-Click Export</div>
                 <p class="feature-desc">Download your merged result as a .xlsx file. Column selection and row checkboxes let you fine-tune exactly what's exported.</p>
             </div>
-            <div class="feature-item" role="listitem">
+            <div class="feature-item wide" role="listitem">
                 <div class="feature-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
-                <div class="feature-title">Open Source</div>
-                <p class="feature-desc">ExcelFusion Pro is fully open-source on GitHub. Inspect the code, contribute features, or fork it for your own use.</p>
+                <div class="feature-title">Open Source Framework</div>
+                <p class="feature-desc">ExcelFusion Pro is fully open-source on GitHub. Inspect the clean vanilla JS implementation, contribute new sheet parsers, or run it offline for self-hosted data pipeline projects.</p>
             </div>
         </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         COMPARISON CHART — AI-SEO: Comparison keywords
+    ═══════════════════════════════════════ -->
+    <section class="comparison-section" id="compare" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Merger Workflows Compared</h2>
+        <p class="section-description">
+            How ExcelFusion Pro matches up against traditional methods for merging Excel files:
+        </p>
+        <div class="table-wrapper">
+            <table class="data-table" role="grid">
+                <thead>
+                    <tr>
+                        <th><div class="th-inner">Workflow Metric</div></th>
+                        <th><div class="th-inner" style="color:var(--accent);">ExcelFusion Pro</div></th>
+                        <th><div class="th-inner">Excel Power Query</div></th>
+                        <th><div class="th-inner">Python (Pandas)</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 600;">Pricing / License</td>
+                        <td style="color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem;">FREE FOREVER</td>
+                        <td>Office 365 License</td>
+                        <td style="font-family: var(--font-mono); font-size: 0.8rem;">FREE (OPEN)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Setup Overhead</td>
+                        <td>None (Drag &amp; Drop in browser)</td>
+                        <td>Built-in to Excel application</td>
+                        <td>Python env &amp; package install</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Row Key Matching</td>
+                        <td>Smart Automatic (Roll/Name match)</td>
+                        <td>Manual Key Join configurations</td>
+                        <td>`pd.merge(on='key_column')` code</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Privacy Assurance</td>
+                        <td>100% Client-Side Local execution</td>
+                        <td>Local desktop processing</td>
+                        <td>Local script execution</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Learning Curve</td>
+                        <td style="color: var(--accent);">Zero (Instant GUI)</td>
+                        <td>Medium (Advanced Excel skills)</td>
+                        <td>High (Python developer required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         STEP BY STEP TUTORIAL
+    ═══════════════════════════════════════ -->
+    <section class="tutorial-section" id="tutorial" aria-labelledby="tutorial-heading">
+        <h2 id="tutorial-heading">How to Merge Excel Files Online: Step-by-Step Guide</h2>
+        <p class="section-description">
+            Consolidate your worksheets in seconds without running formulas or macros:
+        </p>
+        <div class="tutorial-steps" role="list">
+            <div class="step-card" role="listitem">
+                <span class="step-num">01</span>
+                <h3>Upload Your Workbooks</h3>
+                <p>Drag and drop your spreadsheet files (in <strong>.xlsx</strong> format) directly into the secure upload zone, or click to browse files from your computer. You can upload two or more sheets at once.</p>
+            </div>
+            <div class="step-card" role="listitem">
+                <span class="step-num">02</span>
+                <h3>Specify Default Values</h3>
+                <p>If you anticipate empty cells in the merged outputs, define a fallback string (e.g. <em>N/A</em> or <em>0</em>) in the configuration field. This ensures clean, uniform values across all rows.</p>
+            </div>
+            <div class="step-card" role="listitem">
+                <span class="step-num">03</span>
+                <h3>Match Rows &amp; Columns</h3>
+                <p>Click the <strong>Merge &amp; Preview</strong> button. The browser engine parses SheetJS logic to look for a matching column index (like <em>Roll</em> or <em>Name</em>) and merges rows. Toggle column chips to select which fields to output.</p>
+            </div>
+            <div class="step-card" role="listitem">
+                <span class="step-num">04</span>
+                <h3>Filter &amp; Download</h3>
+                <p>Search values instantly using filter fields in column headers. Uncheck individual rows you want to omit, then click <strong>Download Merged Excel</strong> to export your unified spreadsheet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         DEVELOPER API & SELF-HOSTING BLUEPRINT
+    ═══════════════════════════════════════ -->
+    <section class="developer-section" id="developer" aria-labelledby="developer-heading">
+        <h2 id="developer-heading">Developer API &amp; Self-Hosting Guide</h2>
+        <p class="section-description">
+            Automate Excel merging programmatically in your own pipelines or self-host a private microservice.
+        </p>
+        
+        <div class="dev-tabs" role="tablist">
+            <button class="dev-tab-btn active" id="btn-python" onclick="switchTab('python')" role="tab" aria-selected="true" aria-controls="pane-python">Python (Pandas)</button>
+            <button class="dev-tab-btn" id="btn-node" onclick="switchTab('node')" role="tab" aria-selected="false" aria-controls="pane-node">Node.js (SheetJS)</button>
+            <button class="dev-tab-btn" id="btn-docker" onclick="switchTab('docker')" role="tab" aria-selected="false" aria-controls="pane-docker">Docker Microservice</button>
+        </div>
+
+        <div class="dev-pane active" id="pane-python" role="tabpanel" aria-labelledby="btn-python">
+            <pre><code>import pandas as pd
+import glob
+
+# 1. Load all .xlsx files in current directory
+files = glob.glob("*.xlsx")
+
+# 2. Merge using primary key alignment
+dataframes = [pd.read_excel(f) for f in files]
+merged_df = dataframes[0]
+
+for df in dataframes[1:]:
+    # Match dynamically on 'Roll' or 'Name' keys
+    key = 'Roll' if 'Roll' in df.columns else 'Name'
+    merged_df = pd.merge(merged_df, df, on=key, how='outer')
+
+# 3. Export to consolidated workbook
+merged_df.to_excel("merged_output.xlsx", index=False)
+print("Spreadsheets merged successfully via Python Pandas API.")</code></pre>
+        </div>
+
+        <div class="dev-pane" id="pane-node" role="tabpanel" aria-labelledby="btn-node">
+            <pre><code>const XLSX = require('xlsx');
+
+// 1. Read input workbooks
+const wb1 = XLSX.readFile('file1.xlsx');
+const wb2 = XLSX.readFile('file2.xlsx');
+
+// 2. Parse sheets to JSON arrays
+const data1 = XLSX.utils.sheet_to_json(wb1.Sheets[wb1.SheetNames[0]]);
+const data2 = XLSX.utils.sheet_to_json(wb2.Sheets[wb2.SheetNames[0]]);
+
+// 3. Combine rows by matching key (Roll/Name)
+const merged = [...data1];
+data2.forEach(row2 => {
+    const match = merged.find(row1 => (row1.Roll === row2.Roll) || (row1.Name === row2.Name));
+    if (match) {
+        Object.assign(match, row2);
+    } else {
+        merged.push(row2);
+    }
+});
+
+// 4. Export output workbook
+const newWb = XLSX.utils.book_new();
+const newWs = XLSX.utils.json_to_sheet(merged);
+XLSX.utils.book_append_sheet(newWb, newWs, 'Merged Data');
+XLSX.writeFile(newWb, 'merged_output.xlsx');</code></pre>
+        </div>
+
+        <div class="dev-pane" id="pane-docker" role="tabpanel" aria-labelledby="btn-docker">
+            <pre><code>Self-Hosting Architecture Blueprint: Fast, Private, Scalable
+------------------------------------------------------------------
+
+           +---------------------------------------------+
+           |           Client Web Browser SPA            |
+           +----------------------+----------------------+
+                                  | HTTP POST /api/merge (multipart files)
+                                  v
+           +----------------------+----------------------+
+           |       NGINX Reverse Proxy / API Gateway     |
+           +----------------------+----------------------+
+                                  | Forward Request
+                                  v
+           +----------------------+----------------------+
+           |     FastAPI / Node.js Merger Worker         |
+           |   (Offline parser using SheetJS/Pandas)     |
+           +----------------------+----------------------+
+                                  | Read / Write Cache
+                                  v
+           +----------------------+----------------------+
+           |          Redis In-Memory Data Store         |
+           +---------------------------------------------+
+
+Docker Setup Quickstart:
+1. Dockerize a lightweight Python FastAPI / Node.js API container.
+2. Bind Excel processing inside a Worker pool to offload large payloads.
+3. Cache operations temporarily using Redis storage.
+4. Route requests via NGINX with strict CORS constraints.</code></pre>
+        </div>
+
+        <script>
+            function switchTab(tabId) {
+                document.querySelectorAll('.dev-tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.dev-pane').forEach(pane => pane.classList.remove('active'));
+                
+                document.getElementById('btn-' + tabId).classList.add('active');
+                document.getElementById('btn-' + tabId).setAttribute('aria-selected', 'true');
+                document.getElementById('pane-' + tabId).classList.add('active');
+            }
+        </script>
     </section>
 
     <!-- ═══════════════════════════════════════
@@ -1333,7 +2167,7 @@
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <p class="footer-copy">
-                © 2025 ExcelFusion Pro · Built by
+                © 2026 ExcelFusion Pro · Built by
                 <a href="https://github.com/thesupersaurabh" target="_blank" rel="noopener noreferrer">Saurabh</a> ·
                 <a href="https://github.com/thesupersaurabh/ExcelFusion-Pro" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </p>
@@ -1342,7 +2176,7 @@
                 <span>·</span>
                 <span>Free Forever</span>
                 <span>·</span>
-                <span>Last updated: May 2025</span>
+                <span>Last updated: May 2026</span>
             </div>
         </div>
     </footer>
@@ -1467,6 +2301,36 @@
             return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { defval: '' });
         }
 
+        /* ── Skeleton loader generator ── */
+        function showSkeletonLoader() {
+            const previewDiv = document.getElementById('preview');
+            previewDiv.innerHTML = `
+                <div class="section-label">Analyzing Data Streams...</div>
+                <div class="table-wrapper" style="margin-top: 1rem;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><div class="th-inner"><div class="skeleton-cell" style="width: 60px; height: 12px; margin: 4px 0;"></div></div></th>
+                                <th><div class="th-inner"><div class="skeleton-cell" style="width: 80px; height: 12px; margin: 4px 0;"></div></div></th>
+                                <th><div class="th-inner"><div class="skeleton-cell" style="width: 70px; height: 12px; margin: 4px 0;"></div></div></th>
+                                <th><div class="th-inner"><div class="skeleton-cell" style="width: 50px; height: 12px; margin: 4px 0;"></div></div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Array(5).fill().map(() => `
+                                <tr>
+                                    <td><div class="skeleton-cell" style="width: 70%;"></div></td>
+                                    <td><div class="skeleton-cell" style="width: 85%;"></div></td>
+                                    <td><div class="skeleton-cell" style="width: 90%;"></div></td>
+                                    <td><div class="skeleton-cell" style="width: 75%;"></div></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
         /* ── Merge logic ── */
         async function mergeFiles() {
             const files = document.getElementById('upload').files;
@@ -1478,6 +2342,11 @@
             const btn = document.getElementById('mergeBtn');
             btn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Merging…';
             btn.disabled = true;
+
+            showSkeletonLoader();
+
+            // Shimmer duration to give processing a tactile feel
+            await new Promise(resolve => setTimeout(resolve, 800));
 
             try {
                 const dataList = [];
@@ -1649,6 +2518,12 @@
                             ? (defaultValue || '—')
                             : row[col];
                         td.textContent = val;
+                        // Format numbers using monospace font for readability
+                        if (val !== undefined && val !== null && val !== '' && !isNaN(val)) {
+                            td.style.fontFamily = 'var(--font-mono)';
+                            td.style.letterSpacing = '-0.02em';
+                            td.style.fontSize = '0.8rem';
+                        }
                         tr.appendChild(td);
                     });
 
@@ -1755,6 +2630,60 @@
             } else {
                 badge.style.display = 'none';
             }
+        }
+
+        /* ── Mock data loader ── */
+        function loadMockData() {
+            // Two simulated datasets — students from two classes
+            const sheet1 = [
+                { Roll: 101, Name: 'Alice Johnson',  Math: 92, Science: 88 },
+                { Roll: 102, Name: 'Bob Smith',      Math: 76, Science: 81 },
+                { Roll: 103, Name: 'Clara Davis',    Math: 85, Science: 90 },
+                { Roll: 104, Name: 'David Lee',      Math: 60, Science: 72 },
+                { Roll: 105, Name: 'Eva Martinez',   Math: 95, Science: 97 },
+            ];
+
+            const sheet2 = [
+                { Roll: 101, Name: 'Alice Johnson',  English: 91, History: 84 },
+                { Roll: 102, Name: 'Bob Smith',      English: 70, History: 65 },
+                { Roll: 103, Name: 'Clara Davis',    English: 88, History: 79 },
+                { Roll: 104, Name: 'David Lee',      English: 55, History: 61 },
+                { Roll: 106, Name: 'Frank Wilson',   English: 82, History: 77 },
+            ];
+
+            // Build merged data the same way mergeFiles() does
+            allHeaders.clear();
+            mergedData = [];
+            selectedColumns.clear();
+            selectedRows.clear();
+
+            const dataList = [sheet1, sheet2];
+            dataList.forEach(data => {
+                data.forEach(row => Object.keys(row).forEach(h => allHeaders.add(h)));
+            });
+
+            const rowMap = new Map();
+            dataList.forEach(data => {
+                data.forEach(row => {
+                    const key = row['Roll'] || row['Name'] || JSON.stringify(row);
+                    if (!rowMap.has(key)) {
+                        rowMap.set(key, [row]);
+                    } else {
+                        rowMap.get(key).push(row);
+                    }
+                });
+            });
+
+            mergedData = Array.from(rowMap.entries()).map(([key, rows]) => ({ key, rows }));
+
+            // Show a badge in the upload zone
+            const badge = document.getElementById('fileCountBadge');
+            badge.textContent = '2 mock files loaded';
+            badge.style.display = 'inline-block';
+
+            displayPreviews();
+            document.getElementById('downloadBtn').style.display = 'inline-flex';
+            document.getElementById('resetBtn').style.display = 'inline-flex';
         }
     </script>
 
